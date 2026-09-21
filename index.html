@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CourierTrack - Parcel Tracking System</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+
+    <div class="logo">
+        CourierTrack
+    </div>
+
+    <div class="nav-links">
+
+        <a href="#home">Home</a>
+
+        <a href="#book">Book Courier</a>
+
+        <a href="#track">Track Parcel</a>
+
+        <a href="#status">Status</a>
+
+        <a href="#parcels">My Parcels</a>
+
+        <a href="#calculator">Calculator</a>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= HOME MODULE ================= -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Courier & Parcel Tracking System
+        </h1>
+
+        <p>
+            Book, track and manage your parcels easily.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button onclick="showSection('book')">
+                Book a Courier
+            </button>
+
+            <button onclick="showSection('track')">
+                Track Parcel
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BOOK COURIER MODULE ================= -->
+
+<section id="book" class="section">
+
+    <h2>Book Courier</h2>
+
+    <div class="form-container">
+
+        <label>Sender Name</label>
+
+        <input type="text"
+               id="sender"
+               placeholder="Enter sender name">
+
+
+        <label>Receiver Name</label>
+
+        <input type="text"
+               id="receiver"
+               placeholder="Enter receiver name">
+
+
+        <label>Delivery Address</label>
+
+        <input type="text"
+               id="address"
+               placeholder="Enter delivery address">
+
+
+        <label>Parcel Type</label>
+
+        <select id="parcelType">
+
+            <option value="">
+                Select Parcel Type
+            </option>
+
+            <option value="Document">
+                Document
+            </option>
+
+            <option value="Package">
+                Package
+            </option>
+
+            <option value="Fragile">
+                Fragile
+            </option>
+
+        </select>
+
+
+        <label>Courier Type</label>
+
+        <select id="courierType">
+
+            <option value="">
+                Select Courier Type
+            </option>
+
+            <option value="Normal">
+                Normal Courier
+            </option>
+
+            <option value="Express">
+                Express Courier
+            </option>
+
+        </select>
+
+
+        <button onclick="bookCourier()">
+            Book Courier
+        </button>
+
+
+        <div id="bookingResult"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TRACK PARCEL MODULE ================= -->
+
+<section id="track" class="section">
+
+    <h2>Track Your Parcel</h2>
+
+    <div class="form-container">
+
+        <input type="text"
+               id="trackingId"
+               placeholder="Enter Tracking ID">
+
+
+        <button onclick="trackParcel()">
+            Track Parcel
+        </button>
+
+
+        <div id="trackingResult"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DELIVERY STATUS MODULE ================= -->
+
+<section id="status" class="section">
+
+    <h2>Delivery Status</h2>
+
+    <div class="status-container">
+
+        <div class="status-card">
+
+            <div class="status-icon">
+                ✓
+            </div>
+
+            <h3>Booked</h3>
+
+            <p>
+                Parcel booked successfully
+            </p>
+
+        </div>
+
+
+        <div class="status-card">
+
+            <div class="status-icon">
+                →
+            </div>
+
+            <h3>In Transit</h3>
+
+            <p>
+                Parcel is on the way
+            </p>
+
+        </div>
+
+
+        <div class="status-card">
+
+            <div class="status-icon">
+                🚚
+            </div>
+
+            <h3>Out for Delivery</h3>
+
+            <p>
+                Parcel is out for delivery
+            </p>
+
+        </div>
+
+
+        <div class="status-card">
+
+            <div class="status-icon">
+                ✓
+            </div>
+
+            <h3>Delivered</h3>
+
+            <p>
+                Parcel delivered successfully
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MY PARCELS MODULE ================= -->
+
+<section id="parcels" class="section">
+
+    <h2>My Parcels</h2>
+
+    <div id="parcelList">
+
+        <p class="empty-message">
+            No parcels booked yet.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SHIPPING CALCULATOR ================= -->
+
+<section id="calculator" class="section">
+
+    <h2>Shipping Calculator</h2>
+
+    <div class="form-container">
+
+        <label>Parcel Weight (kg)</label>
+
+        <input type="number"
+               id="weight"
+               placeholder="Enter weight">
+
+
+        <label>Courier Type</label>
+
+        <select id="calculatorType">
+
+            <option value="">
+                Select Courier Type
+            </option>
+
+            <option value="Normal">
+                Normal Courier
+            </option>
+
+            <option value="Express">
+                Express Courier
+            </option>
+
+        </select>
+
+
+        <button onclick="calculateShipping()">
+            Calculate Charge
+        </button>
+
+
+        <div id="calculationResult"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h3>CourierTrack</h3>
+
+    <p>
+        Courier / Parcel Tracking System
+    </p>
+
+    <p>
+        OOP Mini Project
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
